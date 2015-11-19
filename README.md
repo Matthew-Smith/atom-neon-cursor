@@ -8,4 +8,4 @@ Introducing glowing cursor style, inspired by Enligntenment's Terminology!
 
 ---
 
-To complement your neon cursor, there is also [Neon Selection](https://atom.io/packages/neon-selection) available.
+To complement your neon cursor, there is also [Neon Selection](https://atom.io/packages/neon-selection) available
