@@ -1,6 +1,6 @@
 {
   "name": "neon-cursor",
-  "main": "./lib/neon-cursor",
+  "main": "./lib/settings",
   "version": "0.2.0",
   "description": "Glowing cursor style, inspired by Enligntenment's Terminology",
   "repository": {
@@ -17,6 +17,10 @@
     "version": 1,
     "dependencies": [],
     "extensions": {
+      ".coffee": [
+        "lib/config.coffee",
+        "lib/settings.coffee"
+      ],
       ".json": [
         "package.json"
       ]
