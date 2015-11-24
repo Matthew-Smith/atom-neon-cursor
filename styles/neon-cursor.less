@@ -1,8 +1,18 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "syntax-variables";
+
+@neon-cursor-color: rgba(97, 210, 255, 1.0);
+@neon-cursor-glow-color: rgba(75, 213, 255, 1.0);
+
+
 .pulse-on {
     transition: opacity 500ms ease-in-out;
     opacity: 1;
     border-width: 0 0 0 1px;
-    border-color: rgba(97, 210, 255, 1.0);//@neon-cursor-glow-color;
+    border-color: @neon-cursor-glow-color;
 }
 
 .pulse-off {
