@@ -21,23 +21,53 @@ module.exports = neonCursor =
           'flicker',
           'phase'
       ]
+      
+    cursorType:
+      title: 'Cursor Type'
+      description: 'Change the cursor between a box and a bar cursor'
+      type: 'string'
+      default: 'box'
+      enum: [
+          'box',
+          'bar'
+      ]
 
   activate: (state) ->
     atom.workspace.observeTextEditors @init
     atom.config.onDidChange 'neon-cursor.glowColor', @setGlowColor
+    atom.config.onDidChange 'neon-cursor.innerColor', @setInnerColor
+    atom.config.onDidChange 'neon-cursor.animationType', @setAnimationType
+    atom.config.onDidChange 'neon-cursor.cursorType', @setCursorType
 
   setGlowColor: (event) ->
+    newValue = 'glow-color: ' + event.newValue + ';'
+    oldValue = 'glow-color: ' + event.oldValue + ';'
+    for textEditor in atom.workspace.getTextEditors()
+      neonCursor.setEditor textEditor, newValue, oldValue
+
+  setInnerColor: (event) ->
+    newValue = 'color: ' + event.newValue + ';'
+    oldValue = 'color: ' + event.oldValue + ';'
+    for textEditor in atom.workspace.getTextEditors()
+      neonCursor.setEditor textEditor, newValue, oldValue
+
+  setAnimationType: (event) ->
+    for textEditor in atom.workspace.getTextEditors()
+      neonCursor.setEditor textEditor, event.newValue, event.oldValue
+
+  setCursorType: (event) ->
     for textEditor in atom.workspace.getTextEditors()
       neonCursor.setEditor textEditor, event.newValue, event.oldValue
 
   deactivate: ->
 
-
   serialize: ->
 
   init: (textEditor) ->
-    color = atom.config.get 'neon-cursor.glowColor'
-    neonCursor.setEditor textEditor, color
+    animationType = atom.config.get 'neon-cursor.animationType'
+    neonCursor.setEditor textEditor, animationType
+    cursorType = atom.config.get 'neon-cursor.cursorType'
+    neonCursor.setEditor textEditor, cursorType
 
   setEditor: (textEditor, newValue, oldValue) ->
     textEditorView = atom.views.getView textEditor
