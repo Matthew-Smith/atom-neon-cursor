@@ -4,13 +4,13 @@ module.exports = neonCursor =
       title: 'Glow Color'
       description: 'Change the glow color of the selector.'
       type: 'color'
-      default: 'rgba(75, 213, 255, 1.0)'
+      default: 'rgba(75,213,255,1.0)'
 
     innerColor:
       title: 'Selector Inner Color'
       description: 'The color of the inner of the selector.'
       type: 'color'
-      default: 'rgba(97, 210, 255, 1.0)'
+      default: 'rgba(97,210,255,1.0)'
 
     animationType:
       title: 'Cursor idle animation'
